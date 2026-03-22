@@ -1,101 +1,45 @@
-import Image from "next/image";
+"use client";
+import { useState } from "react";
+import { BG, BORDER } from "@/lib/constants";
+import Navbar from "@/components/landing/Navbar";
+import HeroSection from "@/components/landing/HeroSection";
+import FeaturesSection from "@/components/landing/FeaturesSection";
+import DashboardMockup from "@/components/landing/DashboardMockup";
+import PricingSection from "@/components/landing/PricingSection";
+import CTASection from "@/components/landing/CTASection";
+import Footer from "@/components/landing/Footer";
 
-export default function Home() {
+export default function LandingPage() {
+  const [mousePos, setMousePos] = useState({ x: 0.5, y: 0.5 });
+  const onMouseMove = (e: React.MouseEvent) => setMousePos({ x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight });
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div style={{ minHeight: "100vh", background: BG, color: "#fff", overflowX: "hidden" }} onMouseMove={onMouseMove}>
+      {/* Mouse-following glow */}
+      <div style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0, pointerEvents: "none", zIndex: 0 }}>
+        <div style={{ position: "absolute", width: 600, height: 600, borderRadius: "50%", background: "radial-gradient(circle,rgba(0,212,255,0.06),transparent 70%)", filter: "blur(40px)", left: `calc(${mousePos.x * 100}% - 300px)`, top: `calc(${mousePos.y * 100}% - 300px)`, transition: "left .8s ease, top .8s ease", pointerEvents: "none" }} />
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <Navbar />
+      <HeroSection />
+
+      {/* Logos / Social Proof */}
+      <section style={{ padding: "32px 0", borderTop: `1px solid ${BORDER}`, borderBottom: `1px solid ${BORDER}`, background: "rgba(255,255,255,0.015)", overflow: "hidden", position: "relative" }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 12, marginBottom: 14 }}>
+          <span style={{ fontSize: 11, color: "rgba(255,255,255,0.3)", letterSpacing: ".15em", textTransform: "uppercase" }}>Intègre les leaders mondiaux de l&apos;IA</span>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <div style={{ display: "flex", gap: 32, flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>
+          {[{ n: "OpenAI", c: "#10a37f" }, { n: "Anthropic", c: "#cc785c" }, { n: "Google", c: "#4285f4" }, { n: "Meta", c: "#3b82f6" }, { n: "Mistral", c: "#ff7000" }, { n: "xAI", c: "#e5e7eb" }, { n: "ElevenLabs", c: "#ff6b35" }, { n: "Runway", c: "#ff0080" }, { n: "Suno", c: "#ff4081" }, { n: "n8n", c: "#ea4b71" }].map(l => (
+            <div key={l.n} style={{ fontSize: 13, fontWeight: 800, color: "rgba(255,255,255,0.22)", letterSpacing: ".04em", transition: "color .2s", cursor: "default", whiteSpace: "nowrap" }} onMouseEnter={e => (e.target as HTMLElement).style.color = l.c} onMouseLeave={e => (e.target as HTMLElement).style.color = "rgba(255,255,255,0.22)"}>{l.n}</div>
+          ))}
+        </div>
+      </section>
+
+      <FeaturesSection />
+      <DashboardMockup />
+      <PricingSection />
+      <CTASection />
+      <Footer />
     </div>
   );
 }
