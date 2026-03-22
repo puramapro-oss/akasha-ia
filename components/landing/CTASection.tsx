@@ -11,7 +11,7 @@ export default function CTASection() {
         <p style={{ fontSize: 11, letterSpacing: ".25em", color: ACCENT, fontWeight: 800, marginBottom: 14, textTransform: "uppercase" }}>⚡ La plateforme IA la plus complète du marché</p>
         <h2 style={{ fontSize: "clamp(26px,5vw,58px)", fontWeight: 800, marginBottom: 14, lineHeight: 1.1 }}>Prêt à dominer<br />avec l&apos;IA ?</h2>
         <p style={{ color: "rgba(255,255,255,0.45)", fontSize: 15, marginBottom: 32, maxWidth: 420, margin: "0 auto 28px" }}>47 outils IA. 7€/mois. Aucune carte bancaire requise.</p>
-        <Link href="/inscription" style={{ display: "inline-block", padding: "17px 44px", background: "linear-gradient(135deg,#00d4ff,#6366f1,#00d4ff)", backgroundSize: "200%", border: "none", borderRadius: 14, color: "#fff", fontSize: 16, fontWeight: 800, cursor: "pointer", boxShadow: "0 0 60px rgba(0,212,255,0.5)", letterSpacing: ".04em", animation: "shimmerBtn 3s linear infinite", textDecoration: "none" }}>
+        <Link href="/onboarding" style={{ display: "inline-block", padding: "17px 44px", background: "linear-gradient(135deg,#00d4ff,#6366f1,#00d4ff)", backgroundSize: "200%", border: "none", borderRadius: 14, color: "#fff", fontSize: 16, fontWeight: 800, cursor: "pointer", boxShadow: "0 0 60px rgba(0,212,255,0.5)", letterSpacing: ".04em", animation: "shimmerBtn 3s linear infinite", textDecoration: "none" }}>
           Commencer Gratuitement — C&apos;est Gratuit ⚡
         </Link>
         <p style={{ fontSize: 12, color: "rgba(255,255,255,0.25)", marginTop: 16 }}>✓ Sans engagement · ✓ RGPD · ✓ Hébergé en France 🇫🇷</p>

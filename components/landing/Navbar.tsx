@@ -16,7 +16,7 @@ export default function Navbar() {
       </div>
       <div style={{ display: "flex", gap: 10 }}>
         <Link href="/connexion" style={{ padding: "8px 20px", background: "transparent", border: `1px solid ${BORDER}`, borderRadius: 10, color: "rgba(255,255,255,.7)", fontSize: 13, fontWeight: 600, cursor: "pointer", transition: "all .2s", textDecoration: "none" }}>Connexion</Link>
-        <Link href="/inscription" style={{ padding: "8px 20px", background: "linear-gradient(135deg,#00d4ff,#6366f1)", border: "none", borderRadius: 10, color: "#fff", fontSize: 13, fontWeight: 700, cursor: "pointer", boxShadow: "0 0 20px #00d4ff50", transition: "transform .2s", textDecoration: "none" }}>
+        <Link href="/onboarding" style={{ padding: "8px 20px", background: "linear-gradient(135deg,#00d4ff,#6366f1)", border: "none", borderRadius: 10, color: "#fff", fontSize: 13, fontWeight: 700, cursor: "pointer", boxShadow: "0 0 20px #00d4ff50", transition: "transform .2s", textDecoration: "none" }}>
           Essai Gratuit →
         </Link>
       </div>

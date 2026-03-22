@@ -45,7 +45,7 @@ export default function HeroSection() {
           </p>
 
           <div className="reveal reveal-4" style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 32 }}>
-            <Link href="/inscription" style={{ padding: "16px 36px", background: "linear-gradient(135deg,#00d4ff,#6366f1,#00d4ff)", backgroundSize: "200%", border: "none", borderRadius: 14, color: "#fff", fontSize: 15, fontWeight: 800, cursor: "pointer", boxShadow: "0 0 50px rgba(0,212,255,0.5), 0 4px 20px rgba(0,0,0,0.4)", letterSpacing: ".03em", animation: "shimmerBtn 3s linear infinite", textDecoration: "none", display: "inline-block" }}>
+            <Link href="/onboarding" style={{ padding: "16px 36px", background: "linear-gradient(135deg,#00d4ff,#6366f1,#00d4ff)", backgroundSize: "200%", border: "none", borderRadius: 14, color: "#fff", fontSize: 15, fontWeight: 800, cursor: "pointer", boxShadow: "0 0 50px rgba(0,212,255,0.5), 0 4px 20px rgba(0,0,0,0.4)", letterSpacing: ".03em", animation: "shimmerBtn 3s linear infinite", textDecoration: "none", display: "inline-block" }}>
               ⚡ Commencer Gratuitement
             </Link>
             <Link href="/connexion" style={{ padding: "16px 32px", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.15)", borderRadius: 14, color: "rgba(255,255,255,0.8)", fontSize: 15, fontWeight: 600, cursor: "pointer", backdropFilter: "blur(12px)", textDecoration: "none", display: "inline-block" }}>

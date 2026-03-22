@@ -27,7 +27,7 @@ export default function PricingSection() {
             <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 22 }}>
               {p.features.map(f => <div key={f} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13, color: "rgba(255,255,255,0.75)" }}><span style={{ color: p.color, fontWeight: 800, fontSize: 12 }}>✓</span>{f}</div>)}
             </div>
-            <Link href="/inscription" style={{ display: "block", width: "100%", padding: "12px", background: p.featured ? p.color : "transparent", border: `2px solid ${p.color}`, borderRadius: 11, color: p.featured ? "#000" : p.color, fontSize: 13, fontWeight: 800, cursor: "pointer", letterSpacing: ".06em", textDecoration: "none", textAlign: "center" }}>
+            <Link href="/onboarding" style={{ display: "block", width: "100%", padding: "12px", background: p.featured ? p.color : "transparent", border: `2px solid ${p.color}`, borderRadius: 11, color: p.featured ? "#000" : p.color, fontSize: 13, fontWeight: 800, cursor: "pointer", letterSpacing: ".06em", textDecoration: "none", textAlign: "center" }}>
               Commencer →
             </Link>
           </Card3D>
