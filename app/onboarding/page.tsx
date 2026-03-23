@@ -7,37 +7,35 @@ import ParticleBg from "@/components/effects/ParticleBg";
 
 const STEPS = [
   {
-    title: "Tu veux utiliser l'IA pour…",
-    subtitle: "Choisis tes cas d'usage principaux",
+    title: "Tu veux utiliser l\u2019IA pour\u2026",
+    subtitle: "Choisis tes cas d\u2019usage principaux",
     multi: true,
     options: [
-      { id: "content", icon: "✍️", label: "Créer du contenu", desc: "Posts, articles, newsletters" },
-      { id: "code", icon: "💻", label: "Coder & développer", desc: "Générer, debug, déployer du code" },
-      { id: "design", icon: "🎨", label: "Design & créatif", desc: "Images, vidéos, audio" },
-      { id: "business", icon: "📊", label: "Business & analyse", desc: "Rapports, data, stratégie" },
-      { id: "automation", icon: "⟳", label: "Automatiser", desc: "Workflows, emails, tâches" },
-      { id: "support", icon: "🎧", label: "Support client", desc: "Chatbots, FAQ, réponses auto" },
+      { id: "content", icon: "\u270D\uFE0F", label: "Cr\u00e9er du contenu", desc: "Posts, articles, newsletters" },
+      { id: "code", icon: "\uD83D\uDCBB", label: "Coder & d\u00e9velopper", desc: "G\u00e9n\u00e9rer, debug, d\u00e9ployer" },
+      { id: "design", icon: "\uD83C\uDFA8", label: "Design & cr\u00e9atif", desc: "Images, vid\u00e9os, audio" },
+      { id: "automation", icon: "\u27F3", label: "Automatiser", desc: "Workflows, emails, t\u00e2ches" },
     ],
   },
   {
-    title: "Ton niveau avec l'IA ?",
-    subtitle: "On adapte l'expérience pour toi",
+    title: "Ton niveau avec l\u2019IA ?",
+    subtitle: "On adapte l\u2019exp\u00e9rience pour toi",
     multi: false,
     options: [
-      { id: "beginner", icon: "🌱", label: "Débutant", desc: "Je découvre, j'ai besoin d'être guidé" },
-      { id: "intermediate", icon: "⚡", label: "Intermédiaire", desc: "J'utilise ChatGPT / Midjourney parfois" },
-      { id: "advanced", icon: "🚀", label: "Avancé", desc: "J'utilise l'IA au quotidien pour bosser" },
-      { id: "expert", icon: "🧠", label: "Expert", desc: "API, agents, prompting avancé, no-code" },
+      { id: "beginner", icon: "\uD83C\uDF31", label: "D\u00e9butant", desc: "Je d\u00e9couvre, j\u2019ai besoin d\u2019\u00eatre guid\u00e9" },
+      { id: "intermediate", icon: "\u26A1", label: "Interm\u00e9diaire", desc: "J\u2019utilise ChatGPT / Midjourney parfois" },
+      { id: "expert", icon: "\uD83E\uDDE0", label: "Expert", desc: "API, agents, prompting avanc\u00e9" },
     ],
   },
   {
-    title: "Le plan idéal pour toi",
-    subtitle: "Tu pourras changer à tout moment",
+    title: "Quel plan t\u2019int\u00e9resse ?",
+    subtitle: "Tu pourras changer \u00e0 tout moment",
     multi: false,
     options: [
-      { id: "SPARK", icon: "✨", label: "SPARK — 7€/mois", desc: "5 req/jour · 20 modèles · Idéal pour tester", color: "#00d4ff" },
-      { id: "NOVA", icon: "⭐", label: "NOVA — 17€/mois", desc: "20 req/jour · 47 outils · Studio + Agents", color: "#ffd700" },
-      { id: "APEX", icon: "💎", label: "APEX — 37€/mois", desc: "Illimité · GPU · Équipe 10 users · SLA", color: "#39ff14" },
+      { id: "AUTOMATE", icon: "\u26A1", label: "AUTOMATE \u2014 d\u00e8s 7\u20AC/mois", desc: "n8n, Make, Zapier, agents \u2014 automatise tout", color: "#00d4ff" },
+      { id: "CREATE", icon: "\uD83C\uDFAC", label: "CREATE \u2014 d\u00e8s 7\u20AC/mois", desc: "Images, vid\u00e9os, audio \u2014 cr\u00e9e sans limites", color: "#ff6b9d" },
+      { id: "BUILD", icon: "\uD83D\uDCBB", label: "BUILD \u2014 d\u00e8s 7\u20AC/mois", desc: "Claude, Cursor, v0 \u2014 code et d\u00e9ploie", color: "#39ff14" },
+      { id: "COMPLET", icon: "\uD83C\uDF0C", label: "COMPLET \u2014 d\u00e8s 22\u20AC/mois", desc: "Les 47 outils AKASHA AI complets", color: "#ffd700" },
     ],
   },
 ];
@@ -47,7 +45,6 @@ export default function OnboardingPage() {
   const [answers, setAnswers] = useState<Record<number, string[]>>({});
   const router = useRouter();
   const current = STEPS[step];
-
   const selected = answers[step] || [];
 
   const toggle = (id: string) => {
@@ -67,9 +64,8 @@ export default function OnboardingPage() {
     if (step < STEPS.length - 1) {
       setStep(s => s + 1);
     } else {
-      // Terminé → inscription avec le plan choisi
-      const plan = selected[0] || "NOVA";
-      router.push(`/inscription?plan=${plan}`);
+      const plan = selected[0] || "AUTOMATE";
+      router.push(`/inscription?plan=${plan}_essentiel`);
     }
   };
 
@@ -85,7 +81,7 @@ export default function OnboardingPage() {
         {/* Logo */}
         <div style={{ textAlign: "center", marginBottom: 28 }}>
           <div style={{ display: "inline-flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
-            <div style={{ width: 36, height: 36, borderRadius: 10, background: "linear-gradient(135deg,#00d4ff,#6366f1)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 17, boxShadow: "0 0 20px #00d4ff60" }}>⬡</div>
+            <div style={{ width: 36, height: 36, borderRadius: 10, background: `linear-gradient(135deg,${ACCENT},#7c3aed)`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 15, fontWeight: 800, color: "#fff" }}>A</div>
             <span style={{ fontSize: 20, fontWeight: 800 }}>AKASHA<span style={{ color: ACCENT }}>AI</span></span>
           </div>
         </div>
@@ -93,7 +89,7 @@ export default function OnboardingPage() {
         {/* Progress bar */}
         <div style={{ display: "flex", gap: 6, marginBottom: 32 }}>
           {STEPS.map((_, i) => (
-            <div key={i} style={{ flex: 1, height: 4, borderRadius: 2, background: i <= step ? "linear-gradient(90deg,#00d4ff,#6366f1)" : "rgba(255,255,255,0.08)", transition: "background .4s" }} />
+            <div key={i} style={{ flex: 1, height: 4, borderRadius: 2, background: i <= step ? `linear-gradient(90deg,${ACCENT},#7c3aed)` : "rgba(255,255,255,0.08)", transition: "background .4s" }} />
           ))}
         </div>
 
@@ -105,7 +101,7 @@ export default function OnboardingPage() {
         </div>
 
         {/* Options grid */}
-        <div style={{ display: "grid", gridTemplateColumns: current.options.length <= 4 ? "1fr 1fr" : "1fr 1fr 1fr", gap: 10, marginBottom: 28 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 28 }}>
           {current.options.map(opt => {
             const isSelected = selected.includes(opt.id);
             const optColor = (opt as { color?: string }).color || ACCENT;
@@ -117,15 +113,11 @@ export default function OnboardingPage() {
                   padding: "18px 16px",
                   background: isSelected ? `${optColor}15` : "rgba(255,255,255,0.03)",
                   border: `2px solid ${isSelected ? optColor : BORDER}`,
-                  borderRadius: 16,
-                  cursor: "pointer",
-                  transition: "all .25s",
+                  borderRadius: 16, cursor: "pointer", transition: "all .25s",
                   textAlign: "center",
                   transform: isSelected ? "scale(1.02)" : "none",
                   boxShadow: isSelected ? `0 0 20px ${optColor}25` : "none",
                 }}
-                onMouseEnter={e => { if (!isSelected) e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)"; }}
-                onMouseLeave={e => { if (!isSelected) e.currentTarget.style.borderColor = BORDER; }}
               >
                 <div style={{ fontSize: 26, marginBottom: 8 }}>{opt.icon}</div>
                 <div style={{ fontSize: 14, fontWeight: 700, color: isSelected ? "#fff" : "rgba(255,255,255,.8)", marginBottom: 4 }}>{opt.label}</div>
@@ -139,42 +131,40 @@ export default function OnboardingPage() {
         <div style={{ display: "flex", gap: 10 }}>
           {step > 0 ? (
             <button onClick={back} style={{ flex: "0 0 auto", padding: "14px 24px", background: "rgba(255,255,255,.05)", border: `1px solid ${BORDER}`, borderRadius: 12, color: "rgba(255,255,255,.6)", fontSize: 14, fontWeight: 600, cursor: "pointer" }}>
-              ← Retour
+              \u2190 Retour
             </button>
           ) : (
             <Link href="/" style={{ flex: "0 0 auto", padding: "14px 24px", background: "rgba(255,255,255,.05)", border: `1px solid ${BORDER}`, borderRadius: 12, color: "rgba(255,255,255,.6)", fontSize: 14, fontWeight: 600, textDecoration: "none", display: "flex", alignItems: "center" }}>
-              ← Accueil
+              \u2190 Accueil
             </Link>
           )}
           <button
             onClick={next}
             disabled={!canContinue}
             style={{
-              flex: 1,
-              padding: "14px",
-              background: canContinue ? "linear-gradient(135deg,#00d4ff,#6366f1)" : "rgba(255,255,255,.08)",
-              border: "none",
-              borderRadius: 12,
+              flex: 1, padding: "14px",
+              background: canContinue ? `linear-gradient(135deg,${ACCENT},#7c3aed)` : "rgba(255,255,255,.08)",
+              border: "none", borderRadius: 12,
               color: canContinue ? "#fff" : "rgba(255,255,255,.3)",
-              fontSize: 15,
-              fontWeight: 800,
+              fontSize: 15, fontWeight: 800,
               cursor: canContinue ? "pointer" : "not-allowed",
               boxShadow: canContinue ? "0 0 30px #00d4ff40" : "none",
               transition: "all .2s",
             }}
           >
-            {step < STEPS.length - 1 ? "Continuer →" : "Créer mon compte →"}
+            {step < STEPS.length - 1 ? "Continuer \u2192" : "Cr\u00e9er mon compte \u2192"}
           </button>
         </div>
 
         {/* Skip */}
         <div style={{ textAlign: "center", marginTop: 16 }}>
-          <span onClick={() => router.push("/inscription")} style={{ fontSize: 12, color: "rgba(255,255,255,.25)", cursor: "pointer", transition: "color .2s" }} onMouseEnter={e => (e.target as HTMLElement).style.color = "rgba(255,255,255,.5)"} onMouseLeave={e => (e.target as HTMLElement).style.color = "rgba(255,255,255,.25)"}>
-            Passer cette étape
-          </span>
+          <span onClick={() => router.push("/inscription")} style={{ fontSize: 12, color: "rgba(255,255,255,.25)", cursor: "pointer", transition: "color .2s" }}
+            onMouseEnter={e => ((e.target as HTMLElement).style.color = "rgba(255,255,255,.5)")}
+            onMouseLeave={e => ((e.target as HTMLElement).style.color = "rgba(255,255,255,.25)")}
+          >Passer cette \u00e9tape</span>
         </div>
         <div style={{ textAlign: "center", marginTop: 12 }}>
-          <span style={{ fontSize: 13, color: "rgba(255,255,255,.35)" }}>Déjà un compte ? </span>
+          <span style={{ fontSize: 13, color: "rgba(255,255,255,.35)" }}>D\u00e9j\u00e0 un compte ? </span>
           <Link href="/connexion" style={{ fontSize: 13, color: ACCENT, fontWeight: 600, textDecoration: "none" }}>Se connecter</Link>
         </div>
       </div>

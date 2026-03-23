@@ -1,32 +1,39 @@
 "use client";
-import { useState, useEffect } from "react";
 import { BORDER } from "@/lib/constants";
 
-const events = [
-  "🇫🇷 Bienvenue sur AKASHA AI — 47 outils IA en un abonnement",
-  "⚡ Génère une vidéo 4K avec Sora depuis l'onglet Studio",
-  "💻 Code, debug et déploie avec Cursor IDE intégré",
-  "🤖 Configure tes agents autonomes dans l'onglet Agents",
-  "🎵 Crée une musique complète avec Suno en quelques secondes",
-  "⟳ Automatise tes workflows avec n8n, Make et Zapier intégrés",
-  "🔗 Accède à toute la plateforme via 1 seule clé API universelle",
-  "🛡️ Données hébergées en France · 100% RGPD compliant",
+const MESSAGES = [
+  "\u26A1 n8n + Make + Zapier int\u00e9gr\u00e9s",
+  "\uD83C\uDFAC Runway Gen-4, Kling 2.0, HeyGen",
+  "\uD83D\uDCBB Cursor Agent + Claude Code + v0.dev",
+  "\uD83C\uDFA4 ElevenLabs v3 + Suno v4 + Udio 2",
+  "\uD83E\uDD16 Agents autonomes avec AutoAgent",
+  "\u2601\uFE0F Banana GPU Cloud inclus",
+  "\uD83D\uDD12 100% RGPD \u2014 H\u00e9berg\u00e9 en Europe",
+  "\uD83C\uDFA8 Midjourney v7 + FLUX Pro + DALL\u00B7E 4",
+  "\uD83D\uDCCA Analytics temps r\u00e9el",
+  "\uD83D\uDE80 D\u00e8s 7\u20AC/mois \u2014 47 outils IA",
 ];
 
 export default function LiveTicker() {
-  const [idx, setIdx] = useState(0);
-  const [fade, setFade] = useState(true);
-  useEffect(() => {
-    const id = setInterval(() => {
-      setFade(false);
-      setTimeout(() => { setIdx(i => (i + 1) % events.length); setFade(true); }, 300);
-    }, 3000);
-    return () => clearInterval(id);
-  }, []);
+  const doubled = [...MESSAGES, ...MESSAGES];
+
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 18px", background: "rgba(255,255,255,0.03)", border: `1px solid ${BORDER}`, borderRadius: 30, fontSize: 12, color: "rgba(255,255,255,0.6)", maxWidth: 500, width: "100%" }}>
-      <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#39ff14", boxShadow: "0 0 8px #39ff14", flexShrink: 0, animation: "pulse 1.5s infinite", display: "inline-block" }} />
-      <span style={{ opacity: fade ? 1 : 0, transition: "opacity 0.3s", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{events[idx]}</span>
+    <div style={{
+      overflow: "hidden", padding: "14px 0",
+      borderTop: `1px solid ${BORDER}`, borderBottom: `1px solid ${BORDER}`,
+      background: "rgba(255,255,255,0.015)",
+    }}>
+      <div style={{
+        display: "flex", gap: 40, whiteSpace: "nowrap",
+        animation: "ticker 40s linear infinite",
+        width: "max-content",
+      }}>
+        {doubled.map((msg, i) => (
+          <span key={i} style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", letterSpacing: ".02em" }}>
+            {msg}
+          </span>
+        ))}
+      </div>
     </div>
   );
 }

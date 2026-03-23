@@ -1,24 +1,24 @@
 import { getSupabaseAdmin, getSupabaseServer } from "@/lib/supabase/server";
 import { getStripe } from "@/lib/stripe";
 
-const PRICE_MAP: Record<string, string | undefined> = {
-  SPARK: process.env.STRIPE_PRICE_SPARK_ID,
-  NOVA: process.env.STRIPE_PRICE_NOVA_ID,
-  APEX: process.env.STRIPE_PRICE_APEX_ID,
-};
-
 export async function POST(req: Request) {
   try {
     const supabaseAuth = await getSupabaseServer();
     const { data: { user } } = await supabaseAuth.auth.getUser();
     if (!user) {
-      return new Response(JSON.stringify({ error: "Non autorisé" }), { status: 401 });
+      return new Response(JSON.stringify({ error: "Non autoris\u00e9" }), { status: 401 });
     }
 
     const { plan } = await req.json();
-    const priceId = PRICE_MAP[plan?.toUpperCase()];
-    if (!priceId) {
-      return new Response(JSON.stringify({ error: "Plan invalide" }), { status: 400 });
+    if (!plan) {
+      return new Response(JSON.stringify({ error: "Plan requis" }), { status: 400 });
+    }
+
+    // Map plan key (e.g. "AUTOMATE_pro") to env var name
+    const envKey = `STRIPE_PRICE_${plan.toUpperCase().replace("_", "_")}_ID`;
+    const priceId = process.env[envKey];
+    if (!priceId || priceId.startsWith("price_YOUR")) {
+      return new Response(JSON.stringify({ error: "Plan non configur\u00e9 dans Stripe" }), { status: 400 });
     }
 
     const supabase = getSupabaseAdmin();
@@ -42,7 +42,7 @@ export async function POST(req: Request) {
       line_items: [{ price: priceId, quantity: 1 }],
       success_url: `${process.env.NEXT_PUBLIC_APP_URL}/dashboard?success=true`,
       cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/dashboard?canceled=true`,
-      metadata: { plan: plan.toUpperCase(), user_id: user.id },
+      metadata: { plan, user_id: user.id },
     });
 
     return Response.json({ url: session.url });

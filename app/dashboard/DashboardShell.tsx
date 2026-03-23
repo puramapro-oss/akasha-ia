@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import { BG } from "@/lib/constants";
-import type { PlanName } from "@/lib/plans";
 import Sidebar from "@/components/dashboard/Sidebar";
 import Topbar from "@/components/dashboard/Topbar";
 import ChatSection from "@/components/dashboard/ChatSection";
@@ -21,21 +20,20 @@ interface DashboardShellProps {
 
 export default function DashboardShell({ userName, userPlan, userEmail }: DashboardShellProps) {
   const [section, setSection] = useState("chat");
-  const plan = userPlan as PlanName;
 
   return (
     <div style={{ display: "flex", height: "100vh", background: BG, color: "#fff", overflow: "hidden" }}>
       <Sidebar userName={userName} userPlan={userPlan} activeSection={section} onSectionChange={setSection} />
       <div style={{ flex: 1, display: "flex", flexDirection: "column", overflow: "hidden" }}>
-        <Topbar userName={userName} userPlan={plan} />
+        <Topbar userName={userName} userPlan={userPlan} />
         <div style={{ flex: 1, overflow: "hidden" }}>
-          {section === "chat" && <ChatSection userName={userName} userPlan={plan} />}
+          {section === "chat" && <ChatSection userName={userName} userPlan={userPlan} />}
           {section === "tools" && <ToolsSection />}
           {section === "agents" && <AgentsSection />}
           {section === "automation" && <AutomationSection />}
           {section === "studio" && <StudioSection />}
-          {section === "analytics" && <AnalyticsSection userPlan={plan} />}
-          {section === "settings" && <SettingsSection userName={userName} userEmail={userEmail} userPlan={plan} />}
+          {section === "analytics" && <AnalyticsSection userPlan={userPlan} />}
+          {section === "settings" && <SettingsSection userName={userName} userEmail={userEmail} userPlan={userPlan} />}
         </div>
       </div>
     </div>

@@ -18,7 +18,7 @@ h1, h2, h3, h4 {
   font-family: var(--font-syne), sans-serif;
 }
 
-input, button, textarea {
+input, button, textarea, select {
   font-family: var(--font-dm-sans), system-ui, sans-serif;
 }
 
@@ -70,6 +70,21 @@ input, button, textarea {
   50% { border-color: rgba(0,212,255,0.8); }
 }
 
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(0,212,255,0.15); }
+  50% { box-shadow: 0 0 40px rgba(0,212,255,0.3); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 .reveal {
   animation: revealUp 0.8s cubic-bezier(.23,1,.32,1) both;
 }
@@ -78,3 +93,24 @@ input, button, textarea {
 .reveal-3 { animation-delay: 0.35s; }
 .reveal-4 { animation-delay: 0.5s; }
 .reveal-5 { animation-delay: 0.65s; }
+
+.gradient-text {
+  background: linear-gradient(135deg, #00d4ff, #7c3aed, #ff6b9d, #00d4ff);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradMove 4s ease infinite;
+}
+
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+}
+
+.glow-border {
+  animation: glowPulse 3s ease-in-out infinite;
+}

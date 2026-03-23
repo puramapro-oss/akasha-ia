@@ -1,6 +1,6 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { getSupabaseAdmin, getSupabaseServer } from "@/lib/supabase/server";
-import { PLANS_CONFIG, type PlanName } from "@/lib/plans";
+import { getPlanConfig } from "@/lib/plans";
 
 export const runtime = "nodejs";
 export const maxDuration = 60;
@@ -10,7 +10,7 @@ export async function POST(req: Request) {
     const supabaseAuth = await getSupabaseServer();
     const { data: { user } } = await supabaseAuth.auth.getUser();
     if (!user) {
-      return new Response(JSON.stringify({ error: "Non autorisé" }), { status: 401 });
+      return new Response(JSON.stringify({ error: "Non autoris\u00e9" }), { status: 401 });
     }
 
     const { messages } = await req.json();
@@ -20,21 +20,24 @@ export async function POST(req: Request) {
 
     const supabase = getSupabaseAdmin();
     const { data: userData } = await supabase.from("users").select("plan").eq("id", user.id).single();
-    const planName = (userData?.plan || "SPARK") as PlanName;
-    const plan = PLANS_CONFIG[planName];
+    const planKey = userData?.plan || "AUTOMATE_essentiel";
+    const planCfg = getPlanConfig(planKey);
+    const dailyLimit = planCfg?.tier.daily || 5;
+    const monthlyLimit = planCfg?.tier.monthly || 100;
+    const maxTokens = planCfg?.tier.maxTokens || 500;
 
     const today = new Date().toISOString().slice(0, 10);
     const { data: usage } = await supabase.from("usage").select("request_count, tokens_used").eq("user_id", user.id).eq("date", today).single();
     const dailyCount = usage?.request_count || 0;
 
-    if (dailyCount >= plan.daily) {
-      return new Response(JSON.stringify({ error: "Limite journalière atteinte", quota: { used: dailyCount, limit: plan.daily, plan: planName } }), { status: 429 });
+    if (dailyCount >= dailyLimit) {
+      return new Response(JSON.stringify({ error: "Limite journali\u00e8re atteinte", quota: { used: dailyCount, limit: dailyLimit, plan: planKey } }), { status: 429 });
     }
 
     const monthStart = today.slice(0, 7) + "-01";
     const { data: monthlyUsage } = await supabase.from("usage").select("request_count").eq("user_id", user.id).gte("date", monthStart);
     const monthlyTotal = (monthlyUsage || []).reduce((sum: number, row: { request_count: number }) => sum + row.request_count, 0);
-    if (monthlyTotal >= plan.monthly) {
+    if (monthlyTotal >= monthlyLimit) {
       return new Response(JSON.stringify({ error: "Limite mensuelle atteinte" }), { status: 429 });
     }
 
@@ -43,8 +46,8 @@ export async function POST(req: Request) {
     const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
     const stream = anthropic.messages.stream({
       model: "claude-sonnet-4-20250514",
-      max_tokens: plan.maxTokens,
-      system: "Tu es AKASHA AI, l'assistant IA le plus puissant du marché. Tu parles en français, tu es concis, précis et expert. Tu peux parler de tous les sujets : code, design, business, créativité, analyse. Tu utilises des emojis avec parcimonie pour rendre tes réponses vivantes.",
+      max_tokens: maxTokens,
+      system: "Tu es AKASHA AI, l'assistant IA le plus puissant du march\u00e9. Tu parles en fran\u00e7ais, tu es concis, pr\u00e9cis et expert. Tu peux parler de tous les sujets : code, design, business, cr\u00e9ativit\u00e9, analyse.",
       messages: messages.map((m: { role: string; content: string }) => ({ role: m.role as "user" | "assistant", content: m.content })),
     });
 

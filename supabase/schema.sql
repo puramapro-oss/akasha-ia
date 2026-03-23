@@ -1,15 +1,14 @@
--- ═══════════════════════════════════════════
---  AKASHA AI — DATABASE SCHEMA
--- ═══════════════════════════════════════════
+-- AKASHA AI -- DATABASE SCHEMA
 
 -- Users extension table (linked to auth.users)
 CREATE TABLE IF NOT EXISTS public.users (
   id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
   email TEXT NOT NULL,
   name TEXT,
-  plan TEXT NOT NULL DEFAULT 'SPARK' CHECK (plan IN ('SPARK', 'NOVA', 'APEX')),
+  plan TEXT NOT NULL DEFAULT 'AUTOMATE_essentiel',
   stripe_customer_id TEXT,
   stripe_subscription_id TEXT,
+  onboarding_done BOOLEAN DEFAULT FALSE,
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );
@@ -82,7 +81,7 @@ BEGIN
     NEW.id,
     NEW.email,
     COALESCE(NEW.raw_user_meta_data->>'name', split_part(NEW.email, '@', 1)),
-    'SPARK'
+    'AUTOMATE_essentiel'
   );
   RETURN NEW;
 END;

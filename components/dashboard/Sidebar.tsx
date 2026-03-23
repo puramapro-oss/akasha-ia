@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import { ACCENT, BORDER, SIDEBAR_ITEMS } from "@/lib/constants";
+import { getPlanConfig } from "@/lib/plans";
 
 interface SidebarProps {
   userName: string;
@@ -14,6 +15,9 @@ interface SidebarProps {
 export default function Sidebar({ userName, userPlan, activeSection, onSectionChange }: SidebarProps) {
   const [collapsed, setCollapsed] = useState(false);
   const router = useRouter();
+  const planCfg = getPlanConfig(userPlan);
+  const planColor = planCfg?.category.color || ACCENT;
+  const planLabel = userPlan.replace("_", " ").toUpperCase();
 
   const handleLogout = async () => {
     const supabase = getSupabaseClient();
@@ -26,7 +30,7 @@ export default function Sidebar({ userName, userPlan, activeSection, onSectionCh
     <div style={{ width: collapsed ? 60 : 220, background: "rgba(255,255,255,.02)", borderRight: `1px solid ${BORDER}`, display: "flex", flexDirection: "column", transition: "width .3s", flexShrink: 0, overflow: "hidden" }}>
       {/* Logo */}
       <div style={{ padding: "16px 12px", borderBottom: `1px solid ${BORDER}`, display: "flex", alignItems: "center", gap: 10, cursor: "pointer" }} onClick={() => setCollapsed(v => !v)}>
-        <div style={{ width: 34, height: 34, borderRadius: 9, background: "linear-gradient(135deg,#00d4ff,#6366f1)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 15, boxShadow: "0 0 14px #00d4ff50", flexShrink: 0 }}>⬡</div>
+        <div style={{ width: 34, height: 34, borderRadius: 9, background: `linear-gradient(135deg,${ACCENT},#7c3aed)`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 15, fontWeight: 800, color: "#fff", flexShrink: 0 }}>A</div>
         {!collapsed && <span style={{ fontSize: 16, fontWeight: 800, whiteSpace: "nowrap" }}>AKASHA<span style={{ color: ACCENT }}>AI</span></span>}
       </div>
 
@@ -43,15 +47,15 @@ export default function Sidebar({ userName, userPlan, activeSection, onSectionCh
       {/* User */}
       <div style={{ padding: "12px 10px", borderTop: `1px solid ${BORDER}` }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8, padding: "8px 8px", borderRadius: 10 }}>
-          <div style={{ width: 32, height: 32, borderRadius: "50%", background: "linear-gradient(135deg,#00d4ff,#6366f1)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, fontWeight: 800, flexShrink: 0 }}>{userName?.[0]?.toUpperCase() || "U"}</div>
+          <div style={{ width: 32, height: 32, borderRadius: "50%", background: `linear-gradient(135deg,${ACCENT},#7c3aed)`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, fontWeight: 800, flexShrink: 0, color: "#fff" }}>{userName?.[0]?.toUpperCase() || "U"}</div>
           {!collapsed && (
             <div style={{ overflow: "hidden" }}>
               <div style={{ fontSize: 12, fontWeight: 700, color: "#fff", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{userName || "Utilisateur"}</div>
-              <div style={{ fontSize: 10, color: "#ffd700", fontWeight: 700 }}>{userPlan || "SPARK"}</div>
+              <div style={{ fontSize: 10, color: planColor, fontWeight: 700 }}>{planLabel}</div>
             </div>
           )}
         </div>
-        {!collapsed && <button onClick={handleLogout} style={{ width: "100%", padding: "7px", background: "transparent", border: `1px solid ${BORDER}`, borderRadius: 8, color: "rgba(255,255,255,.4)", fontSize: 11, cursor: "pointer", transition: "all .2s" }} onMouseEnter={e => { e.currentTarget.style.borderColor = "#ff3366"; e.currentTarget.style.color = "#ff3366"; }} onMouseLeave={e => { e.currentTarget.style.borderColor = BORDER; e.currentTarget.style.color = "rgba(255,255,255,.4)"; }}>Déconnexion</button>}
+        {!collapsed && <button onClick={handleLogout} style={{ width: "100%", padding: "7px", background: "transparent", border: `1px solid ${BORDER}`, borderRadius: 8, color: "rgba(255,255,255,.4)", fontSize: 11, cursor: "pointer", transition: "all .2s" }} onMouseEnter={e => { e.currentTarget.style.borderColor = "#ff3366"; e.currentTarget.style.color = "#ff3366"; }} onMouseLeave={e => { e.currentTarget.style.borderColor = BORDER; e.currentTarget.style.color = "rgba(255,255,255,.4)"; }}>D\u00e9connexion</button>}
       </div>
     </div>
   );
