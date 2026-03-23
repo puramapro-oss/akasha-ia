@@ -14,13 +14,13 @@ export default function CTASection() {
         position: "relative", zIndex: 2,
       }}>
         <p style={{ fontSize: 11, letterSpacing: ".25em", color: ACCENT, fontWeight: 800, marginBottom: 14, textTransform: "uppercase" }}>
-          La plateforme IA la plus compl\u00e8te du march\u00e9
+          La plateforme IA la plus complète du marché
         </p>
         <h2 style={{ fontSize: "clamp(26px,5vw,52px)", fontWeight: 800, marginBottom: 14, lineHeight: 1.1 }}>
-          Pr\u00eat \u00e0 tout cr\u00e9er<br />avec l&apos;IA ?
+          Prêt à tout créer<br />avec l&apos;IA ?
         </h2>
         <p style={{ color: "rgba(255,255,255,0.45)", fontSize: 15, marginBottom: 28, maxWidth: 420, margin: "0 auto 28px" }}>
-          47 outils IA. D\u00e8s 7\u20AC/mois. Aucune carte bancaire requise.
+          47 outils IA. Dès 7€/mois. Aucune carte bancaire requise.
         </p>
         <Link href="/onboarding" style={{
           display: "inline-block", padding: "17px 44px",
@@ -31,7 +31,7 @@ export default function CTASection() {
           Commencer Gratuitement
         </Link>
         <p style={{ fontSize: 12, color: "rgba(255,255,255,0.25)", marginTop: 16 }}>
-          {"\u2713"} Sans engagement \u00B7 {"\u2713"} RGPD \u00B7 {"\u2713"} H\u00e9berg\u00e9 en France
+          {"✓"} Sans engagement · {"✓"} RGPD · {"✓"} Hébergé en France
         </p>
       </div>
     </section>

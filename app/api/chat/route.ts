@@ -10,7 +10,7 @@ export async function POST(req: Request) {
     const supabaseAuth = await getSupabaseServer();
     const { data: { user } } = await supabaseAuth.auth.getUser();
     if (!user) {
-      return new Response(JSON.stringify({ error: "Non autoris\u00e9" }), { status: 401 });
+      return new Response(JSON.stringify({ error: "Non autorisé" }), { status: 401 });
     }
 
     const { messages } = await req.json();
@@ -31,7 +31,7 @@ export async function POST(req: Request) {
     const dailyCount = usage?.request_count || 0;
 
     if (dailyCount >= dailyLimit) {
-      return new Response(JSON.stringify({ error: "Limite journali\u00e8re atteinte", quota: { used: dailyCount, limit: dailyLimit, plan: planKey } }), { status: 429 });
+      return new Response(JSON.stringify({ error: "Limite journalière atteinte", quota: { used: dailyCount, limit: dailyLimit, plan: planKey } }), { status: 429 });
     }
 
     const monthStart = today.slice(0, 7) + "-01";
@@ -47,7 +47,7 @@ export async function POST(req: Request) {
     const stream = anthropic.messages.stream({
       model: "claude-sonnet-4-20250514",
       max_tokens: maxTokens,
-      system: "Tu es AKASHA AI, l'assistant IA le plus puissant du march\u00e9. Tu parles en fran\u00e7ais, tu es concis, pr\u00e9cis et expert. Tu peux parler de tous les sujets : code, design, business, cr\u00e9ativit\u00e9, analyse.",
+      system: "Tu es AKASHA AI, l'assistant IA le plus puissant du marché. Tu parles en français, tu es concis, précis et expert. Tu peux parler de tous les sujets : code, design, business, créativité, analyse.",
       messages: messages.map((m: { role: string; content: string }) => ({ role: m.role as "user" | "assistant", content: m.content })),
     });
 

@@ -6,7 +6,7 @@ export async function GET() {
     const supabaseAuth = await getSupabaseServer();
     const { data: { user } } = await supabaseAuth.auth.getUser();
     if (!user) {
-      return new Response(JSON.stringify({ error: "Non autoris\u00e9" }), { status: 401 });
+      return new Response(JSON.stringify({ error: "Non autorisé" }), { status: 401 });
     }
 
     const supabase = getSupabaseAdmin();

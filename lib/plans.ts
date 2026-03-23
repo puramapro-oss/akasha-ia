@@ -25,7 +25,7 @@ export const PLANS: Record<PlanCategory, PlanCategoryConfig> = {
   AUTOMATE: {
     name: "AUTOMATE",
     label: "Automate",
-    icon: "\u26A1",
+    icon: "⚡",
     color: "#00d4ff",
     tools: [
       "n8n", "Make", "Zapier", "AutoAgent", "Perplexity Sonar",
@@ -40,7 +40,7 @@ export const PLANS: Record<PlanCategory, PlanCategoryConfig> = {
         monthly: 100,
         maxTokens: 500,
         features: [
-          "500 t\u00e2ches n8n/mois",
+          "500 tâches n8n/mois",
           "3 agents",
           "10 workflows",
           "100 req IA/mois",
@@ -54,9 +54,9 @@ export const PLANS: Record<PlanCategory, PlanCategoryConfig> = {
         maxTokens: 1000,
         popular: true,
         features: [
-          "2000 t\u00e2ches n8n/mois",
+          "2000 tâches n8n/mois",
           "10 agents",
-          "Workflows illimit\u00e9s",
+          "Workflows illimités",
           "500 req IA/mois",
         ],
       },
@@ -66,18 +66,18 @@ export const PLANS: Record<PlanCategory, PlanCategoryConfig> = {
         daily: 999,
         monthly: 99999,
         maxTokens: 2000,
-        features: ["Tout illimit\u00e9"],
+        features: ["Tout illimité"],
       },
     },
   },
   CREATE: {
     name: "CREATE",
     label: "Create",
-    icon: "\uD83C\uDFAC",
+    icon: "🎬",
     color: "#ff6b9d",
     tools: [
       "ElevenLabs v3", "Suno v4", "Udio 2", "Stable Audio 2",
-      "Runway Gen-4", "FLUX Pro", "Midjourney v7", "DALL\u00B7E 4", "Ideogram 3",
+      "Runway Gen-4", "FLUX Pro", "Midjourney v7", "DALL·E 4", "Ideogram 3",
       "Adobe Firefly", "Canva IA", "HeyGen Avatar", "Kling 2.0",
       "Descript", "3D Gen IA", "Gemini 2.5 Pro", "Banana GPU",
     ],
@@ -90,9 +90,9 @@ export const PLANS: Record<PlanCategory, PlanCategoryConfig> = {
         maxTokens: 500,
         features: [
           "100 images/mois",
-          "20 vid\u00e9os/mois",
+          "20 vidéos/mois",
           "30 min voix/mois",
-          "50 cr\u00e9as audio/mois",
+          "50 créas audio/mois",
         ],
       },
       pro: {
@@ -104,9 +104,9 @@ export const PLANS: Record<PlanCategory, PlanCategoryConfig> = {
         popular: true,
         features: [
           "500 images/mois",
-          "100 vid\u00e9os/mois",
+          "100 vidéos/mois",
           "3h voix/mois",
-          "200 cr\u00e9as audio/mois",
+          "200 créas audio/mois",
         ],
       },
       max: {
@@ -115,14 +115,14 @@ export const PLANS: Record<PlanCategory, PlanCategoryConfig> = {
         daily: 999,
         monthly: 99999,
         maxTokens: 2000,
-        features: ["Tout illimit\u00e9"],
+        features: ["Tout illimité"],
       },
     },
   },
   BUILD: {
     name: "BUILD",
     label: "Build",
-    icon: "\uD83D\uDCBB",
+    icon: "💻",
     color: "#39ff14",
     tools: [
       "Claude Sonnet 4", "GPT-4o", "o3 Reasoning", "Claude Code",
@@ -138,7 +138,7 @@ export const PLANS: Record<PlanCategory, PlanCategoryConfig> = {
         maxTokens: 500,
         features: [
           "100 req IA/mois",
-          "10 d\u00e9ploiements Vercel",
+          "10 déploiements Vercel",
           "1 projet Supabase",
           "Claude + GPT",
         ],
@@ -152,9 +152,9 @@ export const PLANS: Record<PlanCategory, PlanCategoryConfig> = {
         popular: true,
         features: [
           "500 req IA/mois",
-          "50 d\u00e9ploiements",
+          "50 déploiements",
           "5 projets Supabase",
-          "Tous les mod\u00e8les",
+          "Tous les modèles",
         ],
       },
       max: {
@@ -163,14 +163,14 @@ export const PLANS: Record<PlanCategory, PlanCategoryConfig> = {
         daily: 999,
         monthly: 99999,
         maxTokens: 2000,
-        features: ["Tout illimit\u00e9"],
+        features: ["Tout illimité"],
       },
     },
   },
   COMPLET: {
     name: "COMPLET",
     label: "Complet",
-    icon: "\uD83C\uDF0C",
+    icon: "🌌",
     color: "#ffd700",
     tools: ["Les 47 outils AKASHA AI"],
     tiers: {
@@ -183,7 +183,7 @@ export const PLANS: Record<PlanCategory, PlanCategoryConfig> = {
         features: [
           "300 req LLM",
           "200 images",
-          "50 vid\u00e9os",
+          "50 vidéos",
           "5 agents",
         ],
       },
@@ -197,7 +197,7 @@ export const PLANS: Record<PlanCategory, PlanCategoryConfig> = {
         features: [
           "1000 req LLM",
           "500 images",
-          "200 vid\u00e9os",
+          "200 vidéos",
           "20 agents",
         ],
       },
@@ -207,7 +207,7 @@ export const PLANS: Record<PlanCategory, PlanCategoryConfig> = {
         daily: 999,
         monthly: 99999,
         maxTokens: 4000,
-        features: ["Tout illimit\u00e9 sur les 47 outils"],
+        features: ["Tout illimité sur les 47 outils"],
       },
     },
   },

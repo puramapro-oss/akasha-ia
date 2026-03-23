@@ -3,12 +3,12 @@ import { useState } from "react";
 import { ACCENT, BORDER, CARD } from "@/lib/constants";
 
 const FEATURES = [
-  { icon: "\u26A1", title: "Multi-Model Flash", desc: "1 prompt \u2192 47 IA en parall\u00e8le. R\u00e9sultat optimal garanti.", color: "#00d4ff" },
-  { icon: "\uD83C\uDFAC", title: "Studio Vid\u00e9o IA", desc: "Runway, Kling, HeyGen dans un seul timeline unifi\u00e9.", color: "#ffd700" },
-  { icon: "\uD83D\uDCBB", title: "IDE Code Int\u00e9gr\u00e9", desc: "Cursor, Claude Code, v0 \u2014 code et d\u00e9ploie sans quitter la plateforme.", color: "#39ff14" },
-  { icon: "\uD83E\uDD16", title: "Agents 24/7", desc: "Tes agents travaillent la nuit. Tu te r\u00e9veilles, c\u2019est fait.", color: "#ff6b9d" },
-  { icon: "\u27F3", title: "n8n + Make + Zapier", desc: "3 plateformes d\u2019automatisation, z\u00e9ro abonnement en plus.", color: "#ea4b71" },
-  { icon: "\uD83C\uDFA4", title: "Studio Audio Pro", desc: "ElevenLabs, Suno, Udio \u2014 qualit\u00e9 studio en quelques secondes.", color: "#ff6b35" },
+  { icon: "⚡", title: "Multi-Model Flash", desc: "1 prompt → 47 IA en parallèle. Résultat optimal garanti.", color: "#00d4ff" },
+  { icon: "🎬", title: "Studio Vidéo IA", desc: "Runway, Kling, HeyGen dans un seul timeline unifié.", color: "#ffd700" },
+  { icon: "💻", title: "IDE Code Intégré", desc: "Cursor, Claude Code, v0 â code et déploie sans quitter la plateforme.", color: "#39ff14" },
+  { icon: "🤖", title: "Agents 24/7", desc: "Tes agents travaillent la nuit. Tu te réveilles, c'est fait.", color: "#ff6b9d" },
+  { icon: "⟳", title: "n8n + Make + Zapier", desc: "3 plateformes d'automatisation, zéro abonnement en plus.", color: "#ea4b71" },
+  { icon: "🎤", title: "Studio Audio Pro", desc: "ElevenLabs, Suno, Udio â qualité studio en quelques secondes.", color: "#ff6b35" },
 ];
 
 function FeatureCard({ f }: { f: typeof FEATURES[0] }) {
@@ -47,7 +47,7 @@ function FeatureCard({ f }: { f: typeof FEATURES[0] }) {
       }}>{f.icon}</div>
       <div style={{ fontSize: 16, fontWeight: 800, color: "#fff", marginBottom: 8, position: "relative" }}>{f.title}</div>
       <div style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", lineHeight: 1.65, position: "relative" }}>{f.desc}</div>
-      <div style={{ marginTop: 16, fontSize: 12, color: f.color, fontWeight: 700, position: "relative" }}>Inclus d\u00e8s 7\u20AC/mois \u2192</div>
+      <div style={{ marginTop: 16, fontSize: 12, color: f.color, fontWeight: 700, position: "relative" }}>Inclus dès 7€/mois →</div>
     </div>
   );
 }
@@ -56,9 +56,9 @@ export default function FeaturesSection() {
   return (
     <section id="fonctionnalites" style={{ padding: "100px 24px", maxWidth: 1200, margin: "0 auto" }}>
       <div style={{ textAlign: "center", marginBottom: 60 }}>
-        <p style={{ fontSize: 11, letterSpacing: ".25em", color: "#ffd700", fontWeight: 800, marginBottom: 10, textTransform: "uppercase" }}>Fonctionnalit\u00e9s exclusives</p>
+        <p style={{ fontSize: 11, letterSpacing: ".25em", color: "#ffd700", fontWeight: 800, marginBottom: 10, textTransform: "uppercase" }}>Fonctionnalités exclusives</p>
         <h2 style={{ fontSize: "clamp(26px,4vw,52px)", fontWeight: 800, lineHeight: 1.1 }}>
-          Tout ce dont tu as besoin,<br /><span style={{ color: ACCENT }}>enfin r\u00e9uni.</span>
+          Tout ce dont tu as besoin,<br /><span style={{ color: ACCENT }}>enfin réuni.</span>
         </h2>
       </div>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(310px,1fr))", gap: 18 }}>

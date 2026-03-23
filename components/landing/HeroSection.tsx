@@ -5,9 +5,9 @@ import Link from "next/link";
 import ParticleBg from "@/components/effects/ParticleBg";
 
 const SUBTITLES = [
-  "47 outils IA. 1 plateforme. D\u00e8s 7\u20AC/mois.",
-  "Automatise, cr\u00e9e, code \u2014 tout avec l\u2019IA.",
-  "L\u2019alternative fran\u00e7aise \u00e0 tout le reste.",
+  "47 outils IA. 1 plateforme. Dès 7€/mois.",
+  "Automatise, crée, code — tout avec l'IA.",
+  "L'alternative française à tout le reste.",
 ];
 
 export default function HeroSection() {
@@ -38,7 +38,7 @@ export default function HeroSection() {
 
   const stats = [
     { value: "47+", label: "Outils IA" },
-    { value: "7\u20AC", label: "Prix d\u00e9part" },
+    { value: "7€", label: "Prix départ" },
     { value: "3", label: "Plans" },
     { value: "100%", label: "RGPD EU" },
   ];
@@ -63,7 +63,7 @@ export default function HeroSection() {
         position: "relative", zIndex: 2,
       }}>
         <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#39ff14", animation: "pulse 2s infinite" }} />
-        Plateforme IA Fran\u00e7aise \u2014 100% RGPD
+        Plateforme IA Française — 100% RGPD
       </div>
 
       <h1 className="reveal reveal-1" style={{
@@ -73,7 +73,7 @@ export default function HeroSection() {
       }}>
         <span className="gradient-text">L&apos;IA ultime</span>
         <br />
-        pour tout cr\u00e9er
+        pour tout créer
       </h1>
 
       <div className="reveal reveal-2" style={{

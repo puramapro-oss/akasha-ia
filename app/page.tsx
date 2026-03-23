@@ -29,7 +29,7 @@ export default function LandingPage() {
       {/* Logos */}
       <section style={{ padding: "32px 0", borderBottom: `1px solid ${BORDER}`, background: "rgba(255,255,255,0.015)", overflow: "hidden" }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 12, marginBottom: 14 }}>
-          <span style={{ fontSize: 11, color: "rgba(255,255,255,0.3)", letterSpacing: ".15em", textTransform: "uppercase" }}>Int\u00e8gre les leaders mondiaux de l&apos;IA</span>
+          <span style={{ fontSize: 11, color: "rgba(255,255,255,0.3)", letterSpacing: ".15em", textTransform: "uppercase" }}>Intègre les leaders mondiaux de l&apos;IA</span>
         </div>
         <div style={{ display: "flex", gap: 32, flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>
           {[

@@ -7,35 +7,35 @@ import ParticleBg from "@/components/effects/ParticleBg";
 
 const STEPS = [
   {
-    title: "Tu veux utiliser l\u2019IA pour\u2026",
-    subtitle: "Choisis tes cas d\u2019usage principaux",
+    title: "Tu veux utiliser l'IA pour…",
+    subtitle: "Choisis tes cas d'usage principaux",
     multi: true,
     options: [
-      { id: "content", icon: "\u270D\uFE0F", label: "Cr\u00e9er du contenu", desc: "Posts, articles, newsletters" },
-      { id: "code", icon: "\uD83D\uDCBB", label: "Coder & d\u00e9velopper", desc: "G\u00e9n\u00e9rer, debug, d\u00e9ployer" },
-      { id: "design", icon: "\uD83C\uDFA8", label: "Design & cr\u00e9atif", desc: "Images, vid\u00e9os, audio" },
-      { id: "automation", icon: "\u27F3", label: "Automatiser", desc: "Workflows, emails, t\u00e2ches" },
+      { id: "content", icon: "✍️", label: "Créer du contenu", desc: "Posts, articles, newsletters" },
+      { id: "code", icon: "💻", label: "Coder & développer", desc: "Générer, debug, déployer" },
+      { id: "design", icon: "🎨", label: "Design & créatif", desc: "Images, vidéos, audio" },
+      { id: "automation", icon: "⟳", label: "Automatiser", desc: "Workflows, emails, tâches" },
     ],
   },
   {
-    title: "Ton niveau avec l\u2019IA ?",
-    subtitle: "On adapte l\u2019exp\u00e9rience pour toi",
+    title: "Ton niveau avec l'IA ?",
+    subtitle: "On adapte l'expérience pour toi",
     multi: false,
     options: [
-      { id: "beginner", icon: "\uD83C\uDF31", label: "D\u00e9butant", desc: "Je d\u00e9couvre, j\u2019ai besoin d\u2019\u00eatre guid\u00e9" },
-      { id: "intermediate", icon: "\u26A1", label: "Interm\u00e9diaire", desc: "J\u2019utilise ChatGPT / Midjourney parfois" },
-      { id: "expert", icon: "\uD83E\uDDE0", label: "Expert", desc: "API, agents, prompting avanc\u00e9" },
+      { id: "beginner", icon: "🌱", label: "Débutant", desc: "Je découvre, j'ai besoin d'être guidé" },
+      { id: "intermediate", icon: "⚡", label: "Intermédiaire", desc: "J'utilise ChatGPT / Midjourney parfois" },
+      { id: "expert", icon: "🧠", label: "Expert", desc: "API, agents, prompting avancé" },
     ],
   },
   {
-    title: "Quel plan t\u2019int\u00e9resse ?",
-    subtitle: "Tu pourras changer \u00e0 tout moment",
+    title: "Quel plan t'intéresse ?",
+    subtitle: "Tu pourras changer à tout moment",
     multi: false,
     options: [
-      { id: "AUTOMATE", icon: "\u26A1", label: "AUTOMATE \u2014 d\u00e8s 7\u20AC/mois", desc: "n8n, Make, Zapier, agents \u2014 automatise tout", color: "#00d4ff" },
-      { id: "CREATE", icon: "\uD83C\uDFAC", label: "CREATE \u2014 d\u00e8s 7\u20AC/mois", desc: "Images, vid\u00e9os, audio \u2014 cr\u00e9e sans limites", color: "#ff6b9d" },
-      { id: "BUILD", icon: "\uD83D\uDCBB", label: "BUILD \u2014 d\u00e8s 7\u20AC/mois", desc: "Claude, Cursor, v0 \u2014 code et d\u00e9ploie", color: "#39ff14" },
-      { id: "COMPLET", icon: "\uD83C\uDF0C", label: "COMPLET \u2014 d\u00e8s 22\u20AC/mois", desc: "Les 47 outils AKASHA AI complets", color: "#ffd700" },
+      { id: "AUTOMATE", icon: "⚡", label: "AUTOMATE — dès 7€/mois", desc: "n8n, Make, Zapier, agents — automatise tout", color: "#00d4ff" },
+      { id: "CREATE", icon: "🎬", label: "CREATE â dès 7â¬/mois", desc: "Images, vidéos, audio â crée sans limites", color: "#ff6b9d" },
+      { id: "BUILD", icon: "💻", label: "BUILD â dès 7â¬/mois", desc: "Claude, Cursor, v0 â code et déploie", color: "#39ff14" },
+      { id: "COMPLET", icon: "🌌", label: "COMPLET â dès 22â¬/mois", desc: "Les 47 outils AKASHA AI complets", color: "#ffd700" },
     ],
   },
 ];
@@ -131,11 +131,11 @@ export default function OnboardingPage() {
         <div style={{ display: "flex", gap: 10 }}>
           {step > 0 ? (
             <button onClick={back} style={{ flex: "0 0 auto", padding: "14px 24px", background: "rgba(255,255,255,.05)", border: `1px solid ${BORDER}`, borderRadius: 12, color: "rgba(255,255,255,.6)", fontSize: 14, fontWeight: 600, cursor: "pointer" }}>
-              \u2190 Retour
+              ← Retour
             </button>
           ) : (
             <Link href="/" style={{ flex: "0 0 auto", padding: "14px 24px", background: "rgba(255,255,255,.05)", border: `1px solid ${BORDER}`, borderRadius: 12, color: "rgba(255,255,255,.6)", fontSize: 14, fontWeight: 600, textDecoration: "none", display: "flex", alignItems: "center" }}>
-              \u2190 Accueil
+              ← Accueil
             </Link>
           )}
           <button
@@ -152,7 +152,7 @@ export default function OnboardingPage() {
               transition: "all .2s",
             }}
           >
-            {step < STEPS.length - 1 ? "Continuer \u2192" : "Cr\u00e9er mon compte \u2192"}
+            {step < STEPS.length - 1 ? "Continuer →" : "Créer mon compte →"}
           </button>
         </div>
 
@@ -161,10 +161,10 @@ export default function OnboardingPage() {
           <span onClick={() => router.push("/inscription")} style={{ fontSize: 12, color: "rgba(255,255,255,.25)", cursor: "pointer", transition: "color .2s" }}
             onMouseEnter={e => ((e.target as HTMLElement).style.color = "rgba(255,255,255,.5)")}
             onMouseLeave={e => ((e.target as HTMLElement).style.color = "rgba(255,255,255,.25)")}
-          >Passer cette \u00e9tape</span>
+          >Passer cette étape</span>
         </div>
         <div style={{ textAlign: "center", marginTop: 12 }}>
-          <span style={{ fontSize: 13, color: "rgba(255,255,255,.35)" }}>D\u00e9j\u00e0 un compte ? </span>
+          <span style={{ fontSize: 13, color: "rgba(255,255,255,.35)" }}>Déjà un compte ? </span>
           <Link href="/connexion" style={{ fontSize: 13, color: ACCENT, fontWeight: 600, textDecoration: "none" }}>Se connecter</Link>
         </div>
       </div>

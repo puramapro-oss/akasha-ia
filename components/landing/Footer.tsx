@@ -8,9 +8,9 @@ export default function Footer() {
         <div style={{ width: 28, height: 28, borderRadius: 8, background: `linear-gradient(135deg,${ACCENT},#7c3aed)`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, fontWeight: 800, color: "#fff" }}>A</div>
         <span style={{ fontSize: 14, fontWeight: 800, color: "#fff" }}>AKASHA<span style={{ color: ACCENT }}>AI</span></span>
       </Link>
-      <span style={{ fontSize: 12, color: "rgba(255,255,255,0.2)" }}>{"\u00A9"} 2025 AKASHA AI \u00B7 Tous droits r\u00e9serv\u00e9s</span>
+      <span style={{ fontSize: 12, color: "rgba(255,255,255,0.2)" }}>{"©"} 2025 AKASHA AI · Tous droits réservés</span>
       <div style={{ display: "flex", gap: 20, fontSize: 12, color: "rgba(255,255,255,0.3)" }}>
-        {["CGU", "Confidentialit\u00e9", "Contact"].map(l => (
+        {["CGU", "Confidentialité", "Contact"].map(l => (
           <span key={l} style={{ cursor: "pointer", transition: "color .2s" }}
             onMouseEnter={e => ((e.target as HTMLElement).style.color = "#fff")}
             onMouseLeave={e => ((e.target as HTMLElement).style.color = "rgba(255,255,255,0.3)")}

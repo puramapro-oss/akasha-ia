@@ -36,7 +36,7 @@ export default function Navbar() {
 
       <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
         {[
-          { label: "Fonctionnalit\u00e9s", href: "#fonctionnalites" },
+          { label: "Fonctionnalités", href: "#fonctionnalites" },
           { label: "Comparatif", href: "#comparatif" },
           { label: "Pricing", href: "#pricing" },
         ].map((l) => (

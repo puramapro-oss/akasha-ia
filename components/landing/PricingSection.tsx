@@ -5,11 +5,11 @@ import { BORDER, CARD } from "@/lib/constants";
 import { PLANS, type PlanCategory } from "@/lib/plans";
 
 const PRICE_ARGUMENTS = [
-  { competitor: "Mammouth", price: "27\u20AC", akasha: "COMPLET \u00e0 22\u20AC", tools: "~10 outils vs 47" },
-  { competitor: "ChatGPT+", price: "20\u20AC", akasha: "AUTOMATE d\u00e8s 7\u20AC", tools: "avec bien plus" },
-  { competitor: "Cursor", price: "20\u20AC", akasha: "inclus dans BUILD d\u00e8s 7\u20AC", tools: "" },
-  { competitor: "ElevenLabs", price: "22\u20AC", akasha: "inclus dans CREATE d\u00e8s 7\u20AC", tools: "" },
-  { competitor: "n8n", price: "20\u20AC", akasha: "inclus dans AUTOMATE d\u00e8s 7\u20AC", tools: "" },
+  { competitor: "Mammouth", price: "27€", akasha: "COMPLET à 22€", tools: "~10 outils vs 47" },
+  { competitor: "ChatGPT+", price: "20€", akasha: "AUTOMATE dès 7€", tools: "avec bien plus" },
+  { competitor: "Cursor", price: "20€", akasha: "inclus dans BUILD dès 7€", tools: "" },
+  { competitor: "ElevenLabs", price: "22€", akasha: "inclus dans CREATE dès 7€", tools: "" },
+  { competitor: "n8n", price: "20€", akasha: "inclus dans AUTOMATE dès 7€", tools: "" },
 ];
 
 export default function PricingSection() {
@@ -23,7 +23,7 @@ export default function PricingSection() {
         <h2 style={{ fontSize: "clamp(24px,4vw,48px)", fontWeight: 800, marginBottom: 8 }}>
           Moins cher.<br /><span style={{ color: "#ff6b9d" }}>Infiniment plus puissant.</span>
         </h2>
-        <p style={{ color: "rgba(255,255,255,0.4)", fontSize: 14 }}>Sans engagement \u00B7 Satisfait ou rembours\u00e9 30 jours</p>
+        <p style={{ color: "rgba(255,255,255,0.4)", fontSize: 14 }}>Sans engagement · Satisfait ou remboursé 30 jours</p>
       </div>
 
       {/* 4 Plan cards */}
@@ -46,17 +46,17 @@ export default function PricingSection() {
               {plan.name}
             </div>
             <div style={{ fontSize: 32, fontWeight: 900, color: "#fff", lineHeight: 1, marginBottom: 4 }}>
-              {plan.tiers.essentiel.price}\u20AC
+              {plan.tiers.essentiel.price}€
               <span style={{ fontSize: 14, color: "rgba(255,255,255,0.4)", fontWeight: 400 }}>/mois</span>
             </div>
             <div style={{ fontSize: 12, color: "rgba(255,255,255,0.3)", marginBottom: 16 }}>
-              \u00e0 partir de
+              à partir de
             </div>
             <div style={{ height: 1, background: `linear-gradient(90deg,${plan.color}40,transparent)`, marginBottom: 16 }} />
             <div style={{ display: "flex", flexDirection: "column", gap: 6, marginBottom: 20 }}>
               {plan.tools.slice(0, 4).map((t) => (
                 <div key={t} style={{ fontSize: 12, color: "rgba(255,255,255,0.55)", display: "flex", alignItems: "center", gap: 6 }}>
-                  <span style={{ color: plan.color, fontSize: 10 }}>{"\u2713"}</span>{t}
+                  <span style={{ color: plan.color, fontSize: 10 }}>{"✓"}</span>{t}
                 </div>
               ))}
               {plan.tools.length > 4 && (
@@ -68,7 +68,7 @@ export default function PricingSection() {
               background: `${plan.color}15`, border: `1px solid ${plan.color}40`,
               borderRadius: 10, fontSize: 13, fontWeight: 700, color: plan.color,
             }}>
-              Voir les offres \u2192
+              Voir les offres →
             </div>
           </div>
         ))}
@@ -85,7 +85,7 @@ export default function PricingSection() {
             fontSize: 12, color: "rgba(255,255,255,0.5)",
           }}>
             <span style={{ textDecoration: "line-through", color: "rgba(255,255,255,0.3)" }}>{a.competitor} {a.price}</span>
-            {" \u2192 "}
+            {" → "}
             <span style={{ color: "#39ff14", fontWeight: 600 }}>{a.akasha}</span>
           </div>
         ))}
@@ -117,7 +117,7 @@ export default function PricingSection() {
                   Plan {PLANS[openModal].name}
                 </span>
               </div>
-              <button onClick={() => setOpenModal(null)} style={{ background: "none", border: "none", color: "rgba(255,255,255,0.4)", fontSize: 24, cursor: "pointer" }}>{"\u2715"}</button>
+              <button onClick={() => setOpenModal(null)} style={{ background: "none", border: "none", color: "rgba(255,255,255,0.4)", fontSize: 24, cursor: "pointer" }}>{"✕"}</button>
             </div>
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(240px,1fr))", gap: 16 }}>
@@ -131,23 +131,23 @@ export default function PricingSection() {
                   }}>
                     {t.popular && (
                       <div style={{ position: "absolute", top: -10, left: "50%", transform: "translateX(-50%)", background: PLANS[openModal].color, color: "#000", fontSize: 10, fontWeight: 800, padding: "3px 12px", borderRadius: 20 }}>
-                        {"\u2B50"} POPULAIRE
+                        {"⭐"} POPULAIRE
                       </div>
                     )}
                     <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".15em", color: "rgba(255,255,255,0.4)", textTransform: "uppercase", marginBottom: 8 }}>{tier}</div>
                     <div style={{ fontSize: 38, fontWeight: 900, color: "#fff", lineHeight: 1, marginBottom: 4 }}>
-                      {t.price}\u20AC<span style={{ fontSize: 14, color: "rgba(255,255,255,0.4)", fontWeight: 400 }}>/mois</span>
+                      {t.price}€<span style={{ fontSize: 14, color: "rgba(255,255,255,0.4)", fontWeight: 400 }}>/mois</span>
                     </div>
                     <div style={{ height: 1, background: `${BORDER}`, margin: "16px 0" }} />
                     <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 20 }}>
                       {t.features.map((f) => (
                         <div key={f} style={{ fontSize: 13, color: "rgba(255,255,255,0.7)", display: "flex", alignItems: "center", gap: 8 }}>
-                          <span style={{ color: PLANS[openModal].color, fontSize: 11, fontWeight: 800 }}>{"\u2713"}</span>{f}
+                          <span style={{ color: PLANS[openModal].color, fontSize: 11, fontWeight: 800 }}>{"✓"}</span>{f}
                         </div>
                       ))}
                     </div>
                     <div style={{ fontSize: 11, color: "rgba(255,255,255,0.3)", marginBottom: 16 }}>
-                      {t.daily === 999 ? "Illimit\u00e9" : `${t.daily} req/jour`} \u00B7 {t.maxTokens} tokens max
+                      {t.daily === 999 ? "Illimité" : `${t.daily} req/jour`} · {t.maxTokens} tokens max
                     </div>
                     <Link
                       href={`/onboarding?plan=${openModal}_${tier}`}
@@ -159,7 +159,7 @@ export default function PricingSection() {
                         fontSize: 13, fontWeight: 800, textDecoration: "none",
                       }}
                     >
-                      Choisir {tier.charAt(0).toUpperCase() + tier.slice(1)} \u2192
+                      Choisir {tier.charAt(0).toUpperCase() + tier.slice(1)} →
                     </Link>
                   </div>
                 );
@@ -167,7 +167,7 @@ export default function PricingSection() {
             </div>
 
             <div style={{ marginTop: 20, textAlign: "center", fontSize: 12, color: "rgba(255,255,255,0.25)" }}>
-              Outils inclus : {PLANS[openModal].tools.join(" \u00B7 ")}
+              Outils inclus : {PLANS[openModal].tools.join(" · ")}
             </div>
           </div>
         </div>

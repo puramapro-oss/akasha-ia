@@ -25,19 +25,19 @@ export default function AnalyticsSection({ userPlan }: { userPlan: string }) {
     <div style={{ padding: "24px", overflowY: "auto", height: "100%" }}>
       <div style={{ marginBottom: 20 }}>
         <h2 style={{ fontSize: 22, fontWeight: 800, color: "#fff", marginBottom: 4 }}>Analytics</h2>
-        <p style={{ fontSize: 13, color: "rgba(255,255,255,.4)" }}>Consommation IA en temps r\u00e9el</p>
+        <p style={{ fontSize: 13, color: "rgba(255,255,255,.4)" }}>Consommation IA en temps réel</p>
       </div>
 
       {/* Quota banner */}
       <div style={{ background: `linear-gradient(135deg,${planColor}12,rgba(0,0,0,.4))`, border: `1px solid ${planColor}40`, borderRadius: 16, padding: "18px 20px", marginBottom: 18, display: "flex", alignItems: "center", gap: 20, flexWrap: "wrap" }}>
         <div>
-          <div style={{ fontSize: 11, color: planColor, fontWeight: 800, letterSpacing: ".1em", marginBottom: 4 }}>PLAN {planLabel} \u2014 QUOTA AUJOURD&apos;HUI</div>
-          <div style={{ fontSize: 28, fontWeight: 900, color: "#fff" }}>{quotaData.daily}<span style={{ fontSize: 14, color: "rgba(255,255,255,.4)", fontWeight: 400 }}>/{dailyLimit === 999 ? "\u221E" : dailyLimit} req</span></div>
+          <div style={{ fontSize: 11, color: planColor, fontWeight: 800, letterSpacing: ".1em", marginBottom: 4 }}>PLAN {planLabel} — QUOTA AUJOURD&apos;HUI</div>
+          <div style={{ fontSize: 28, fontWeight: 900, color: "#fff" }}>{quotaData.daily}<span style={{ fontSize: 14, color: "rgba(255,255,255,.4)", fontWeight: 400 }}>/{dailyLimit === 999 ? "∞" : dailyLimit} req</span></div>
         </div>
         <div style={{ flex: 1, minWidth: 140 }}>
           <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 6 }}>
-            <span style={{ fontSize: 11, color: "rgba(255,255,255,.4)" }}>{quotaData.pct.toFixed(0)}% utilis\u00e9</span>
-            <span style={{ fontSize: 11, color: quotaData.remaining > 0 ? "#39ff14" : "#ff3366", fontWeight: 700 }}>{dailyLimit === 999 ? "Illimit\u00e9" : `${quotaData.remaining} restantes`}</span>
+            <span style={{ fontSize: 11, color: "rgba(255,255,255,.4)" }}>{quotaData.pct.toFixed(0)}% utilisé</span>
+            <span style={{ fontSize: 11, color: quotaData.remaining > 0 ? "#39ff14" : "#ff3366", fontWeight: 700 }}>{dailyLimit === 999 ? "Illimité" : `${quotaData.remaining} restantes`}</span>
           </div>
           <div style={{ height: 8, background: "rgba(255,255,255,.08)", borderRadius: 4, overflow: "hidden" }}>
             <div style={{ height: "100%", width: `${Math.min(quotaData.pct, 100)}%`, background: quotaData.pct >= 90 ? "linear-gradient(90deg,#ffd700,#ff3366)" : `linear-gradient(90deg,${planColor},#7c3aed)`, borderRadius: 4, transition: "width .5s ease" }} />
@@ -52,10 +52,10 @@ export default function AnalyticsSection({ userPlan }: { userPlan: string }) {
       {/* Stats cards */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(170px,1fr))", gap: 12, marginBottom: 20 }}>
         {[
-          { label: "Requ\u00eates aujourd'hui", value: quotaData.daily, icon: "\u26A1", color: "#00d4ff" },
-          { label: "Total ce mois", value: quotaData.monthly, icon: "\u25CE", color: "#ffd700" },
-          { label: "Tokens max/requ\u00eate", value: maxTokens, icon: "\uD83D\uDD22", color: "#39ff14" },
-          { label: "Limite journali\u00e8re", value: dailyLimit === 999 ? "\u221E" : dailyLimit, icon: "\u23F1", color: "#ff6b35" },
+          { label: "Requêtes aujourd'hui", value: quotaData.daily, icon: "⚡", color: "#00d4ff" },
+          { label: "Total ce mois", value: quotaData.monthly, icon: "◎", color: "#ffd700" },
+          { label: "Tokens max/requête", value: maxTokens, icon: "🔢", color: "#39ff14" },
+          { label: "Limite journalière", value: dailyLimit === 999 ? "∞" : dailyLimit, icon: "⏱", color: "#ff6b35" },
         ].map(s => (
           <div key={s.label} style={{ background: CARD, border: `1px solid ${BORDER}`, borderRadius: 14, padding: "16px" }}>
             <div style={{ fontSize: 18, marginBottom: 10 }}>{s.icon}</div>
@@ -68,7 +68,7 @@ export default function AnalyticsSection({ userPlan }: { userPlan: string }) {
       {/* Chart */}
       <div style={{ background: CARD, border: `1px solid ${BORDER}`, borderRadius: 16, padding: "20px", marginBottom: 18 }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
-          <h3 style={{ fontSize: 15, fontWeight: 700, color: "#fff" }}>Requ\u00eates par jour</h3>
+          <h3 style={{ fontSize: 15, fontWeight: 700, color: "#fff" }}>Requêtes par jour</h3>
           <div style={{ display: "flex", gap: 6 }}>
             {["7j", "30j", "90j"].map(p => <button key={p} onClick={() => setPeriod(p)} style={{ padding: "4px 12px", borderRadius: 8, fontSize: 11, fontWeight: 700, cursor: "pointer", background: period === p ? ACCENT : "transparent", border: `1px solid ${period === p ? ACCENT : BORDER}`, color: period === p ? "#000" : "rgba(255,255,255,.4)" }}>{p}</button>)}
           </div>
@@ -85,7 +85,7 @@ export default function AnalyticsSection({ userPlan }: { userPlan: string }) {
 
       {/* Model usage */}
       <div style={{ background: CARD, border: `1px solid ${BORDER}`, borderRadius: 16, padding: "20px" }}>
-        <h3 style={{ fontSize: 15, fontWeight: 700, color: "#fff", marginBottom: 16 }}>Utilisation par mod\u00e8le</h3>
+        <h3 style={{ fontSize: 15, fontWeight: 700, color: "#fff", marginBottom: 16 }}>Utilisation par modèle</h3>
         {[{ name: "Claude Sonnet 4", pct: 42, color: "#cc785c" }, { name: "GPT-4o", pct: 28, color: "#10a37f" }, { name: "Gemini 2.5", pct: 16, color: "#4285f4" }, { name: "Mistral", pct: 14, color: "#ff7000" }].map(m => (
           <div key={m.name} style={{ marginBottom: 14 }}>
             <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 5 }}>

@@ -24,7 +24,7 @@ export default function ComparisonTable() {
           borderBottom: `1px solid ${BORDER}`, padding: "16px 24px",
           background: "rgba(255,255,255,0.02)",
         }}>
-          <div style={{ fontSize: 13, color: "rgba(255,255,255,0.3)", fontWeight: 500 }}>Crit\u00e8re</div>
+          <div style={{ fontSize: 13, color: "rgba(255,255,255,0.3)", fontWeight: 500 }}>Critère</div>
           <div style={{ textAlign: "center", fontSize: 14, fontWeight: 700, color: ACCENT }}>AKASHA AI</div>
           <div style={{ textAlign: "center", fontSize: 14, fontWeight: 500, color: "rgba(255,255,255,0.4)" }}>Mammouth IA</div>
         </div>
@@ -43,14 +43,14 @@ export default function ComparisonTable() {
             <div style={{ fontSize: 13, color: "rgba(255,255,255,0.6)" }}>{row.label}</div>
             <div style={{ textAlign: "center", fontSize: 14, fontWeight: 600 }}>
               {typeof row.akasha === "boolean" ? (
-                <span style={{ color: "#39ff14" }}>{"\u2713"}</span>
+                <span style={{ color: "#39ff14" }}>{"✓"}</span>
               ) : (
                 <span style={{ color: ACCENT }}>{row.akasha}</span>
               )}
             </div>
             <div style={{ textAlign: "center", fontSize: 14 }}>
               {typeof row.mammouth === "boolean" ? (
-                row.mammouth ? <span style={{ color: "#39ff14" }}>{"\u2713"}</span> : <span style={{ color: "#ef4444" }}>{"\u2717"}</span>
+                row.mammouth ? <span style={{ color: "#39ff14" }}>{"✓"}</span> : <span style={{ color: "#ef4444" }}>{"✗"}</span>
               ) : (
                 <span style={{ color: "rgba(255,255,255,0.3)", textDecoration: row.label === "Prix" ? "line-through" : "none" }}>{row.mammouth}</span>
               )}
@@ -62,8 +62,8 @@ export default function ComparisonTable() {
       {/* Summary stats */}
       <div className="reveal reveal-3" style={{ display: "flex", justifyContent: "center", gap: 32, marginTop: 32, flexWrap: "wrap" }}>
         {[
-          { value: "4.7\u00D7", label: "plus d\u2019outils" },
-          { value: "\u221210\u20AC", label: "/mois" },
+          { value: "4.7×", label: "plus d'outils" },
+          { value: "−10â¬", label: "/mois" },
           { value: "9/9", label: "fonctions exclusives" },
         ].map((s) => (
           <div key={s.label} style={{ textAlign: "center" }}>

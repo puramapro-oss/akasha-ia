@@ -6,7 +6,7 @@ export async function POST(req: Request) {
     const supabaseAuth = await getSupabaseServer();
     const { data: { user } } = await supabaseAuth.auth.getUser();
     if (!user) {
-      return new Response(JSON.stringify({ error: "Non autoris\u00e9" }), { status: 401 });
+      return new Response(JSON.stringify({ error: "Non autorisé" }), { status: 401 });
     }
 
     const { plan } = await req.json();
@@ -18,7 +18,7 @@ export async function POST(req: Request) {
     const envKey = `STRIPE_PRICE_${plan.toUpperCase().replace("_", "_")}_ID`;
     const priceId = process.env[envKey];
     if (!priceId || priceId.startsWith("price_YOUR")) {
-      return new Response(JSON.stringify({ error: "Plan non configur\u00e9 dans Stripe" }), { status: 400 });
+      return new Response(JSON.stringify({ error: "Plan non configuré dans Stripe" }), { status: 400 });
     }
 
     const supabase = getSupabaseAdmin();

@@ -55,7 +55,7 @@ export default function Sidebar({ userName, userPlan, activeSection, onSectionCh
             </div>
           )}
         </div>
-        {!collapsed && <button onClick={handleLogout} style={{ width: "100%", padding: "7px", background: "transparent", border: `1px solid ${BORDER}`, borderRadius: 8, color: "rgba(255,255,255,.4)", fontSize: 11, cursor: "pointer", transition: "all .2s" }} onMouseEnter={e => { e.currentTarget.style.borderColor = "#ff3366"; e.currentTarget.style.color = "#ff3366"; }} onMouseLeave={e => { e.currentTarget.style.borderColor = BORDER; e.currentTarget.style.color = "rgba(255,255,255,.4)"; }}>D\u00e9connexion</button>}
+        {!collapsed && <button onClick={handleLogout} style={{ width: "100%", padding: "7px", background: "transparent", border: `1px solid ${BORDER}`, borderRadius: 8, color: "rgba(255,255,255,.4)", fontSize: 11, cursor: "pointer", transition: "all .2s" }} onMouseEnter={e => { e.currentTarget.style.borderColor = "#ff3366"; e.currentTarget.style.color = "#ff3366"; }} onMouseLeave={e => { e.currentTarget.style.borderColor = BORDER; e.currentTarget.style.color = "rgba(255,255,255,.4)"; }}>Déconnexion</button>}
       </div>
     </div>
   );
